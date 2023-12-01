@@ -1,0 +1,56 @@
+    1* r
+    2  cd ros_ws/
+    3  ls
+    4  wstool init src noetic.rosinstall 
+    5  rosdep install -y --from-paths src --ignore-src --rosdistro noetic -r
+    6  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+    7  sudo apt-get install catkin
+    8  cd /opt/
+    9  ls
+   10  cd ..
+   11  cd ~
+   12  cd ros_ws/
+   13  ls
+   14  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   15  sudo apt-get install setuptools
+   16  pip install setuptools
+   17  sudo apt-get install pip
+   18  python3
+   19  python3 -m pip install setuptools
+   20  sudo apt-get upgrade
+   21  sudo apt-get update
+   22  sudo catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   23  sudo apt-get install python-setuptools
+   24  sudo catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   25  ls
+   26  cd ros_ws/
+   27  sudo pip3 install --upgrade setuptools
+   28  sudo apt-get install pip3
+   29  rosinstall_generator ros_core --rosdistro noetic --deps --tar > noetic.rosinstall
+   30  mkdir ./src
+   31  ls
+   32  ls src
+   33  rm -rf src
+   34  sudo rm -rf src
+   35  vcs import --input noetic-desktop.rosinstall ./src
+   36  sudo apt-get install vcs
+   37  wstool init src noetic.rosinstall
+   38  rosdep install --from-paths ./src --ignore-packages-from-source --rosdistro noetic -y
+   39  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   40  sudo apt-get install python3-setuptools
+   41  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   42  python --version
+   43  python3 --version
+   44  sudo apt-get pythonlibs
+   45  sudo apt-get install pythonlibs
+   46  gedit
+   47  vim
+   48  sudo apt-get install vim
+   49  sudo apt-get install python-dev
+   50  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   51  sudo apt-get install python3-dev
+   52  cd ..
+   53  ls
+   54  ls -a
+   55  history 1000
+   56  history 1000 > history_10-26.txt
