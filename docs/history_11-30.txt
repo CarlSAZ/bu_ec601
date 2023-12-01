@@ -1,0 +1,538 @@
+    1  ls
+    2  cd ros_ws/
+    3  ls
+    4  wstool init src noetic.rosinstall 
+    5  rosdep install -y --from-paths src --ignore-src --rosdistro noetic -r
+    6  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+    7  sudo apt-get install catkin
+    8  cd /opt/
+    9  ls
+   10  cd ..
+   11  cd ~
+   12  cd ros_ws/
+   13  ls
+   14  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   15  sudo apt-get install setuptools
+   16  pip install setuptools
+   17  sudo apt-get install pip
+   18  python3
+   19  python3 -m pip install setuptools
+   20  sudo apt-get upgrade
+   21  sudo apt-get update
+   22  sudo catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   23  sudo apt-get install python-setuptools
+   24  sudo catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   25  ls
+   26  cd ros_ws/
+   27  sudo pip3 install --upgrade setuptools
+   28  sudo apt-get install pip3
+   29  rosinstall_generator ros_core --rosdistro noetic --deps --tar > noetic.rosinstall
+   30  mkdir ./src
+   31  ls
+   32  ls src
+   33  rm -rf src
+   34  sudo rm -rf src
+   35  vcs import --input noetic-desktop.rosinstall ./src
+   36  sudo apt-get install vcs
+   37  wstool init src noetic.rosinstall
+   38  rosdep install --from-paths ./src --ignore-packages-from-source --rosdistro noetic -y
+   39  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   40  sudo apt-get install python3-setuptools
+   41  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   42  python --version
+   43  python3 --version
+   44  sudo apt-get pythonlibs
+   45  sudo apt-get install pythonlibs
+   46  gedit
+   47  vim
+   48  sudo apt-get install vim
+   49  sudo apt-get install python-dev
+   50  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   51  sudo apt-get install python3-dev
+   52  cd ..
+   53  ls
+   54  ls -a
+   55  history 1000
+   56  history 1000 > history_10-26.txt
+   57  pwd
+   58  ls
+   59  cd ros_ws/
+   60  ls
+   61  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   62  source /opt/ros/noetic/setup.bash 
+   63  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic
+   64  ls /opt/ros/noetic/
+   65  ls /opt/ros/noetic/bin/
+   66  man find
+   67  find /opt/ros/noetic/ name "genpy*"
+   68  find /opt/ros/noetic/ -name "genpy*"
+   69  ls /opt/ros/noetic/lib/
+   70  ls /opt/ros/noetic/lib/genpy/
+   71  echo PATH
+   72  echo $PATH
+   73  echo $PYTHONPATH
+   74  ls /opt/ros/noetic/lib/python3/
+   75  ls /opt/ros/noetic/lib/python3/dist-packages/
+   76  ls /opt/ros/noetic/lib/python2.7/
+   77  ls /opt/ros/noetic/lib/python2.7/dist-packages/
+   78  ls
+   79  cd src/
+   80  ls
+   81  cd std_msgs/
+   82  ls
+   83  cd ..
+   84  ls
+   85  cd ..
+   86  l
+   87  ls
+   88  gedit noetic.rosinstall 
+   89  cat noetic.rosinstall 
+   90  ls
+   91  ls build_isolated/
+   92  ls devel_isolated/
+   93  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic --DPYTHON_VERSION=3.7
+   94  cat /opt/ros/noetic/setup.bash 
+   95  cat /opt/ros/noetic/
+   96  cd /opt/ros/noetic/
+   97  ls
+   98  cd ~
+   99  ls
+  100  cd ros_ws/
+  101  ls
+  102  ls src/
+  103  ls src/catkin/
+  104  cd src/catkin/
+  105  cat CMakeLists.txt 
+  106  sudo apt-get install python3-pip python3-yaml
+  107  python --version
+  108  ls /usr/bin/python
+  109  ls /usr/bin/python -l
+  110  sudo apt-get install python3
+  111  cd ..
+  112  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic -DPYTHON_VERSION=3.7
+  113  cd ..
+  114  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic -DPYTHON_VERSION=3.7
+  115  sudo apt-get remove python2
+  116  suod apt-get autoremove 
+  117  sudo apt-get autoremove 
+  118  sudo apt-get install python-is-python3
+  119  python
+  120  python3
+  121  cd /usr/bin/
+  122  ls
+  123  cp python3 python
+  124  sudo cp python3 python
+  125  cd ~
+  126  python --version
+  127  cd ros_ws/
+  128  sudo catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic -DPYTHON_VERSION=3.7
+  129  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic -DPYTHON_VERSION=3.7
+  130  rosdep init
+  131  sudo apt install ros-noetic-ros-base
+  132  sudo apt-get install python3-rosdep python3-rosinstall-generator python3-vcstools python3-vcstool build-essential
+  133  sudo apt-get update
+  134  sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+  135  sudo apt-get install python3-rosdep python3-rosinstall-generator python3-vcstools python3-vcstool build-essential
+  136  sudo rosdep init
+  137  echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main"
+  138  cat /etc/apt/sources.list.d/ros-latest.list 
+  139  man deb
+  140  sudo apt update
+  141  curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+  142  sudo apt update
+  143  sudo apt-get install python3-rosdep python3-rosinstall-generator python3-vcstools python3-vcstool build-essential
+  144  sudo rosdep init
+  145  rosdep update
+  146  cd ..
+  147  mkdir ros_catkin_ws
+  148  cd ros_catkin_ws/
+  149  rosinstall_generator ros_core --rosdistro noetic --deps --tar > noetic-desktop.rosinstall
+  150  sudo apt-get install roskpkg
+  151  rosinstall_generator ros_core --rosdistro noetic --deps --tar > noetic-desktop.rosinstall
+  152  which rosinstall_generator 
+  153  cat /usr/bin/rosinstall_generator 
+  154  sudo apt-get install python3-catkin-pkg
+  155  rosinstall_generator ros_core --rosdistro noetic --deps --tar > noetic-desktop.rosinstall
+  156  sudo apt-get install python3-catkin-pkg-modules
+  157  rosinstall_generator ros_core --rosdistro noetic --deps --tar > noetic-desktop.rosinstall
+  158  sudo apt install python-is-python3
+  159  python --verison
+  160  python
+  161  python --version
+  162  rosinstall_generator ros_core --rosdistro noetic --deps --tar > noetic-desktop.rosinstall
+  163  rosdep init
+  164  rosdep update
+  165  cd ../ros_ws/
+  166  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic -DPYTHON_VERSION=3.7 -DPYTHON_EXECUTABLE=/usr/bin/python3
+  167  catkin
+  168  catkin_make
+  169  catkin_make --version
+  170  sudo pip3 install rospkg catkin_pkg
+  171  sudo pip3 install rosdistro
+  172  sudo pip3 install rospkg catkin_pkg
+  173  cd ../ros_catkin_ws/
+  174  rosinstall_generator ros_core --rosdistro noetic --deps --tar > noetic-desktop.rosinstall
+  175  mkdir ./src
+  176  vcs import --input noetic-desktop.rosinstall ./src
+  177  rosdep install --from-paths ./src --ignore-packages-from-source --rosdistro noetic -y
+  178  ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3
+  179  roscore
+  180  ls
+  181  ll
+  182  ls -lh
+  183  cd ros_catkin_ws/
+  184  ls
+  185  ls -lh
+  186  ls build_isolated/
+  187  cd ..
+  188  vim .bashrc 
+  189  bash
+  190  roscore
+  191  source airship/devel/setup.sh 
+  192  rosrun airship airship_teleop_keyboard.py 
+  193  roscd rospkg
+  194  pip3 install rospkg
+  195  rosrun airship airship_teleop_keyboard.py 
+  196  rostopic list
+  197  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[20,true]'
+  198  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[0,true]'
+  199  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[20,true]'
+  200  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[0,true]'
+  201  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[1,true]'
+  202  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[10,true]'
+  203  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[20,true]'
+  204  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[15,true]'
+  205  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[15,false]'
+  206  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[30,false]'
+  207  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[40,false]'
+  208  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[60,false]'
+  209  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[10,false]'
+  210  rostopic pub -1 /yaw_rotors airship/RotorPair -- '[0,true]' '[00,false]'
+  211  rosrun airship airship_teleop_keyboard.py 
+  212  sudo apt-get install python3-catkin-pkg
+  213  sudo apt-get install python3-catkin-pkg-modules
+  214  sudo apt-get install python3-rospkg-modules
+  215  rosrun airship airship_teleop_keyboard.py 
+  216  source airship/devel/setup.sh 
+  217  rosrun airship airship_teleop_keyboard.py 
+  218  sudo apt install python3-yaml
+  219  which yaml
+  220  echo $PYTHONPATH
+  221  cd ros_catkin_ws/
+  222  ls
+  223  ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3 --instal-space /opt/ros/noetic/
+  224  ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3 --install-space /opt/ros/noetic/
+  225  cd ~
+  226  vim .bashrc 
+  227  cd ros_catkin_ws/
+  228  bash
+  229  ls
+  230  cd ros_catkin_ws/
+  231  ls
+  232  ls src/
+  233  cd ..
+  234  cd ros_catkin_ws/
+  235  ls
+  236  cd ..
+  237  roscore
+  238  which roscore
+  239  mkdir -p ~/airship/src
+  240  cd airship/
+  241  catkin make
+  242  catkin_make
+  243  catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
+  244  echo $ROS_PACKAGE_PATH
+  245  cd src/
+  246  catkin_create_pkg rospy geometry_msgs transformations
+  247  ls
+  248  cat CMakeLists.txt 
+  249  rm -rf rospy/
+  250  catkin_create_pkg airship_yaw_motors rospy geometry_msgs transformations
+  251  roscd transformations
+  252  roscd geometry_msgs
+  253  roscd airship_motors
+  254  cd ~/airship/
+  255  ls
+  256  cd src/
+  257  ls
+  258  cd l.
+  259  cd ..
+  260  ls
+  261  ls devel/
+  262  source devel/setup.sh 
+  263  roscd airship_yaw_motors/
+  264  mkdir msg
+  265  ls
+  266  cd ..
+  267  ls
+  268  cd airship_yaw_motors/
+  269  cd msg/
+  270  cd ..
+  271  ls
+  272  gedit package.xml 
+  273  vim package.xml 
+  274  emacs CMakeLists.txt 
+  275  vim CMakeLists.txt 
+  276  ls
+  277  vim package.xml 
+  278  cd ..
+  279  rm -rf airship_yaw_motors/
+  280  catkin_create_pkg airship_yaw_motors roscpp rospy std_msgs message_generation message_runtime
+  281  roscd airship_yaw_motors/
+  282  ls
+  283  vim package.xml 
+  284  mkdir msgs
+  285  mv msgs/ msg
+  286  rosmsg show 
+  287  rosmsg show airship_yaw_motors/Rotor
+  288  cd src/
+  289  roscd pigpio
+  290  python3
+  291  pip3 pigpio
+  292  sudo apt-get install pigpio python3-pigpio python-pigpio
+  293  cd ..
+  294  cd .
+  295  cd ..
+  296  cd airship_yaw_motors/
+  297  ls
+  298  mkdir scripts
+  299  cp src/pigpio_setter.py scripts/
+  300  cd ..
+  301  ls
+  302  vim CMakeLists.txt 
+  303  mv airship_yaw_motors/ airship
+  304  ls
+  305  cd airship/
+  306  ls
+  307  vim package.xml 
+  308  ls
+  309  vim CMakeLists.txt 
+  310  ls
+  311  cd scripts/
+  312  vim pigpio_setter.py 
+  313  sudo apt install ros-noetic-telop-twist-keyboard
+  314  sudo apt-get install ros-noetic-teleop-twist-keyboard
+  315  roscd turtlesim
+  316  cd ~/ros_catkin_ws/
+  317  ls
+  318  cd src/
+  319  ls
+  320  roscd airship
+  321  cd scripts/
+  322  ls
+  323  vim teleop_keyboard.py
+  324  cd ..
+  325  ls
+  326  catkin_make
+  327  cd src/airship/
+  328  ls
+  329  ls scripts/
+  330  ls src/
+  331  cd scripts/
+  332  ls
+  333  chmod a+x *.py
+  334  vim pigpio_setter.py 
+  335  sudo apt install dos2unix
+  336  dos2unix pigpio_setter.py pigpio_setter.py 
+  337  dos2unix airship_teleop_keyboard.py airship_teleop_keyboard.py 
+  338  dos2unix pigpio_setter.py pigpio_setter.py 
+  339  vim pigpio_setter.py 
+  340  ls
+  341  dos2unix pigpio_setter.py pigpio_setter.py 
+  342  cd ..
+  343  cd msg/
+  344  ls
+  345  cd ..
+  346  c d..
+  347  cd ..
+  348  cd ~
+  349  mv airship/ airship_ws
+  350  ls
+  351  cd airship_ws/
+  352  catkin_make
+  353  catkin_make clean
+  354  cd ..
+  355  mv airship_ws/ airship
+  356  cd airship/
+  357  catkin_make clean
+  358  catkin_make
+  359  ls
+  360  cd src/airship/
+  361  ls
+  362  cat -v CMakeLists.txt 
+  363  od -c CMakeLists.txt 
+  364  od -c CMakeLists.txt | grep \r
+  365  od -c CMakeLists.txt | grep "\r"
+  366  od -c CMakeLists.txt | grep "\\r"
+  367  cd ..
+  368  catkin_make
+  369  cd src/airship/
+  370  dos2unix CMakeLists.txt CMakeLists.txt 
+  371  dos2unix package.xml package.xml 
+  372  vim package.xml 
+  373  vim CMakeLists.txt 
+  374  vim package.xml 
+  375  cd ../..
+  376  catkin_make
+  377  cd src/airship/
+  378  vim package.xml 
+  379  cd ../..
+  380  catkin_make
+  381  cd src/airship/
+  382  vim CMakeLists.txt 
+  383  cd ../..
+  384  catkin_make
+  385  rostopic list
+  386  rostopic pub /yaw_rotors airship/RotorPair -- '[20,1]' '[5,1]'
+  387  rostopic pub /yaw_rotors airship/RotorPair -- '{left: [4,true], right: [10,true]}'
+  388  roscd roslib
+  389  ls
+  390  cd ..
+  391  ls
+  392  sudo apt-get install python3-rospkg
+  393  roscd airship
+  394  cd scripts/
+  395  vim airship_teleop_keyboard.py 
+  396  cd ..
+  397  catkin_make
+  398  rospack depends airship
+  399  roscd airship
+  400  vim CMakeLists.txt 
+  401  vim package.xml 
+  402  cd ..
+  403  catkin_make
+  404  roscd airship/
+  405  vim CMakeLists.txt 
+  406  catkin_make
+  407  cd ~/airship/
+  408  catkin_make
+  409  cd ..
+  410  cd ros_catkin_ws/
+  411  ls
+  412  cat noetic-desktop.rosinstall 
+  413  ls
+  414  ls /opt/ros/noetic/
+  415  source airship/devel/setup.sh 
+  416  rosrun airship yaw_controller
+  417  rosrun airship pigpio_setter
+  418  rosrun airship pigpio_setter.py
+  419  rosrun airship pigpio_setter
+  420  rosrun airship pigpio_setter.py
+  421  ls /usr/bin/env
+  422  ls /usr/bin/env/
+  423  rosrun airship pigpio_setter.py
+  424  /usr/bin/python3
+  425  rosrun airship airship_teleop_keyboard.py 
+  426  echo python3
+  427  env python3
+  428  python3
+  429  rosrun airship pigpio_setter.py
+  430  cd airship/
+  431  catkin_make
+  432  cd ..
+  433  rosrun airship pigpio_setter.py
+  434  cd airship/src/airship/
+  435  cd ..
+  436  catkin_make
+  437  rosrun airship pigpio_setter.py
+  438  source devel/setup.sh 
+  439  rosrun airship pigpio_setter.py
+  440  sudo pigpiod
+  441  rosrun airship pigpio_setter.py
+  442  cd ros_catkin_ws/
+  443  ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3 --install-space /opt/ros/noetic/
+  444  rm -rf /opt/ros/noetic
+  445  sudo rm -rf /opt/ros/noetic
+  446  sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/usr/bin/python3 --install-space /opt/ros/noetic/
+  447  rosrun airship airship_teleop_keyboard.py 
+  448  cd airship/
+  449  ls
+  450  catkin_make
+  451  cd src/airship/
+  452  ls
+  453  rm scripts
+  454  rm -rf scripts/
+  455  ls src/
+  456  cd ..
+  457  catkin_make
+  458  cd src/airship/
+  459  ls
+  460  mkdir scripts 
+  461  mv src/*.py scripts/
+  462  cd ..
+  463  catkin_make
+  464  rosrun airship airship_teleop_keyboard.py 
+  465  catkin_make
+  466  rosrun airship airship_teleop_keyboard.py 
+  467  cd src
+  468  pwd
+  469  cd..
+  470  catkin_make
+  471  cd ..
+  472  catkin_make
+  473  rosrun airship airship_teleop_keyboard.py 
+  474  catkin_make
+  475  rosrun airship airship_teleop_keyboard.py 
+  476  pwd
+  477  ls
+  478  source bu_ec601_Sonic_Airship/airship_catkin_ws/devel/setup.bash 
+  479  roscd airship
+  480  cd bu_ec601_Sonic_Airship/airship_catkin_ws/src/
+  481  ls
+  482  cd airship/
+  483  ls
+  484  roscd
+  485  rospack
+  486  rospack profile
+  487  source ~/ros_catkin_ws/install_isolated/setup.bash 
+  488  rospack profile
+  489  roscd airship
+  490  pwd
+  491  cd ~
+  492  cd bu_ec601_Sonic_Airship/
+  493  ls
+  494  cd airship_catkin_ws/
+  495  ls
+  496  catkin_make
+  497  cd ..
+  498  rm -rf bu_ec601_Sonic_Airship/
+  499  cd airship/
+  500  ls
+  501  cd src
+  502  ls
+  503  cd airship/
+  504  ls
+  505  cd ..
+  506  cd airship/
+  507  ls src/
+  508  ls scripts/
+  509  rm src/pigpio_setter.py 
+  510  ls
+  511  ls include/
+  512  ls include/airship_yaw_motors/
+  513  vim package.xml 
+  514  vim CMakeLists.txt 
+  515  ls scripts/
+  516  pwd
+  517  cat CMakeLists.txt 
+  518  vim CMakeLists.txt 
+  519  cd ..
+  520  catkin_make
+  521  roscore
+  522  rosrun airship pigpio_setter.py 
+  523  sudo pigpiod
+  524  rosrun airship pigpio_setter.py 
+  525  roscore 
+  526  i2cdetect -1
+  527  i2cdetect -l
+  528  sudo pip3 install adafruit-circuitpython-bno08x
+  529  i2cdetect -y 1
+  530  pip3 install --upgrade adafruit-python-shell
+  531  wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
+  532  sudo -E env PATH=$PATH python3 raspi-blinka.py
+  533  wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
+  534  sudo -E env PATH=$PATH python3 raspi-blinka.py
+  535  ls /dev/i2c*
+  536  sudo -E env PATH=$PATH python3 raspi-blinka.py
+  537  cat /etc/os-release 
+  538  history > history_11-30.txt
