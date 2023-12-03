@@ -48,7 +48,7 @@ e/c : increase/decrease only angular speed by 10%
 CTRL-C to quit
 """
 BASE_PWM = 20
-INVERT_LEFT = True
+INVERT_LEFT = False
 INVERT_RIGHT = False
 RATE_HZ = 10 # Hz
 
@@ -73,6 +73,14 @@ moveBindings = {
         'b':(0,0,-1,0),
     }
 
+VerticalBindings={
+        'q':(1.1,1.1),
+        'z':(.9,.9),
+        'w':(1.1,1),
+        'x':(.9,1),
+        'e':(1,1.1),
+        'c':(1,.9),
+    }
 speedBindings={
         'q':(1.1,1.1),
         'z':(.9,.9),
@@ -182,6 +190,7 @@ def getKey(settings, timeout):
         else:
             key = ''
         termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
+    print("Got key:" + key)
     return key
 
 def saveTerminalSettings():
@@ -204,7 +213,7 @@ if __name__=="__main__":
 
     speed = rospy.get_param("~speed", BASE_PWM)
     turn = rospy.get_param("~turn", BASE_PWM)
-    speed_limit = rospy.get_param("~speed_limit", 40)
+    speed_limit = rospy.get_param("~speed_limit", 90)
     turn_limit = rospy.get_param("~turn_limit", 1000)
     repeat = rospy.get_param("~repeat_rate", 0.0)
     key_timeout = rospy.get_param("~key_timeout", 0.5)
