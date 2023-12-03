@@ -48,6 +48,7 @@ e/c : increase/decrease only angular speed by 10%
 CTRL-C to quit
 """
 BASE_PWM = 20
+BASE_VERT_PWM = 20
 INVERT_LEFT = False
 INVERT_RIGHT = False
 RATE_HZ = 10 # Hz
@@ -74,12 +75,11 @@ moveBindings = {
     }
 
 VerticalBindings={
-        'q':(1.1,1.1),
-        'z':(.9,.9),
-        'w':(1.1,1),
-        'x':(.9,1),
-        'e':(1,1.1),
-        'c':(1,.9),
+        'a':(0),
+        's':(-10),
+        'd':(-1),
+        'f':(1),
+        'g':(10),
     }
 speedBindings={
         'q':(1.1,1.1),
@@ -150,12 +150,12 @@ class PublishThread(threading.Thread):
         rotor_msg.left.direction = left_speed > 0
         rotor_msg.right.pwm = int(abs(right_speed))
         rotor_msg.right.direction = right_speed > 0
-        rospy.loginfo("\nSet rotor pair pwms: %s, %s, directions: %s, %s", rotor_msg.left.pwm, rotor_msg.right.pwm, rotor_msg.left.direction, rotor_msg.right.direction)
         return rotor_msg
 
 
     def run(self):
         rotor_msg = RotorPair()
+        last_rotor_msg = RotorPair()
 
         while not self.done:
             self.condition.acquire()
@@ -168,7 +168,9 @@ class PublishThread(threading.Thread):
             self.condition.release()
 
             # Publish.
-            self.yaw_publisher.publish(rotor_msg)
+            if last_rotor_msg != rotor_msg:
+                self.yaw_publisher.publish(rotor_msg)
+                rospy.loginfo("\nSet rotor pair pwms: %s, %s, directions: %s, %s", rotor_msg.left.pwm, rotor_msg.right.pwm, rotor_msg.left.direction, rotor_msg.right.direction)
 
         # Publish stop message when thread exits.
         rotor_msg.left.pwm = 0
