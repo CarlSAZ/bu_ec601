@@ -55,6 +55,7 @@ add_message_files(
   FILES
   Rotor.msg
   RotorPair.msg
+  Range.msg
 )
 
 
@@ -167,6 +168,7 @@ include_directories(
 catkin_install_python(PROGRAMS
   scripts/airship_teleop_keyboard.py
   scripts/pigpio_setter.py
+  scripts/altitude_controller.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
