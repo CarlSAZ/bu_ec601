@@ -32,7 +32,7 @@ class AirshipAltitudeController:
         self.last_range = Range()
         self.enabled = False
         self.z_current = 0
-
+    
         # Initialise node
         rospy.init_node('altitude_controller', anonymous=True)
         # Initialise publisher and subscriber
@@ -40,6 +40,8 @@ class AirshipAltitudeController:
         rospy.Subscriber('bno08x/raw', Imu, self.imu_update_callback, queue_size=1)
         rospy.Subscriber('airship/alt_range',Range, self.range_update_callback,queue_size=1)
         rospy.Subscriber('airship/pilot_params',AirshipParams,self.new_params,queue_size=10)
+        
+        print("Finished Altitude Init")
         rospy.spin()
 
     def imu_update_callback(self,imu_data: Imu):
@@ -72,7 +74,7 @@ class AirshipAltitudeController:
         # Save pwm and direction
         self.direction_out = int(raw_pwm > 0)
         raw_pwm = abs(raw_pwm)
-        self.pwm_out = max(0, min(raw_pwm, 255))
+        self.pwm_out = int(max(0, min(raw_pwm, 255)))
 
         # Update error
         self.last_error = error
