@@ -62,10 +62,10 @@ class AirshipAltitudeController:
         error = self.set_height_m - self.z_current
 
         # Get integral
-        self.integral += error/tdiff
+        self.integral += error/tdiff.to_sec()
 
         # Get derivative
-        derivative = (error - self.last_error)*tdiff
+        derivative = (error - self.last_error)*tdiff.to_sec()
 
         # Get raw motor value
         raw_pwm = -(P*error + I*self.integral + D*derivative)
