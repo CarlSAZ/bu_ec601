@@ -19,7 +19,7 @@ MIN_HEIGHT = 0
 INVERT_VERT_PROP = False
 
 class AirshipAltitudeController:
-    def __init__(self,/,set_height_m=1):
+    def __init__(self,set_height_m=1):
         if set_height_m < MIN_HEIGHT:
             set_height_m = MIN_HEIGHT 
         self.set_height_m = set_height_m

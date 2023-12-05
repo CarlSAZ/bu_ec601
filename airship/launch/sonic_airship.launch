@@ -3,4 +3,6 @@
         </node>
     <node name="ros_bno08x" pkg="ros_bno08x" type="talker.py" respawn="true" respawn_delay="2">
         </node>
+    <node name="altitude_controller" pkg="airship" type="altitude_controller.py" respawn="false">
+        </node>
 </launch>
