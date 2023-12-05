@@ -2,7 +2,7 @@
 import rospy
 import time
 import sys
-from airship.msg import Range
+from airship.msg import Range, AirshipParams
 
 PERIOD = 90
 
@@ -11,8 +11,8 @@ TARGET_HEIGHT = 2
 RANGE_DELTA = 1
 
 class FakeRanger:
-    def __init__():
-        
+    def __init__(self):
+        rospy.init_node('fake_ranger',anonymous=True) 
         self.pub = rospy.Publisher('airship/alt_range', Range, queue_size=1)
         self.pub_pilot = rospy.Publisher('airship/pilot_params', AirshipParams, queue_size=1)
         rospy.spin()
@@ -28,6 +28,7 @@ class FakeRanger:
         PilotMsg.height_target_m = TARGET_HEIGHT
         PilotMsg.altitude_control_flag = true
         self.pub_pilot.publish(PilotMsg)
+        print("Finished fake ranger init")
 
     def sendFakeRange(self):
         RangeMsg = Range
@@ -54,7 +55,7 @@ class FakeRanger:
         self.pub.publish(RangeMsg)
         print("Sent Fake Range of ",RangeMsg.range,"m")
 
-    def run()
+    def run(self):
         while not rospy.is_shutdown():
             sendFakeRange()
             time.sleep(RATE_S)
@@ -63,4 +64,6 @@ class FakeRanger:
 
 if __name__ == '__main__':
     fake = FakeRanger()
+    print("Starting fake ranger")
     fake.run()
+
