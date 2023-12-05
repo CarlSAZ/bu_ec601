@@ -1,8 +1,9 @@
-
+#!/usr/bin/env python3
 import rospy
 import time
-import sys
-from airship.msg import Range, AirshipParams
+from airship.msg import AirshipParams
+from airship.msg import Range as RangeMsgDef
+from std_msgs.msg import Header
 
 PERIOD = 90
 
@@ -13,26 +14,27 @@ RANGE_DELTA = 1
 class FakeRanger:
     def __init__(self):
         rospy.init_node('fake_ranger',anonymous=True) 
-        self.pub = rospy.Publisher('airship/alt_range', Range, queue_size=1)
+        self.pub = rospy.Publisher('airship/alt_range', RangeMsgDef, queue_size=1)
         self.pub_pilot = rospy.Publisher('airship/pilot_params', AirshipParams, queue_size=1)
-        rospy.spin()
 
         self.fake_time = 0
 
-        RangeMsg = Range
-        RangeMsg.header.time = self.fake_time
+        print("Finished publisher setup")
+        PilotMsg = AirshipParams()
+        PilotMsg.height_target_m = TARGET_HEIGHT
+        PilotMsg.altitude_control_flag = True
+        self.pub_pilot.publish(PilotMsg)
+        print("Sent Pilot Msg")
+
+        RangeMsg = RangeMsgDef()
+        RangeMsg.header.stamp = self.fake_time
         RangeMsg.range = TARGET_HEIGHT
         self.pub.publish(RangeMsg)
-
-        PilotMsg = AirshipParams
-        PilotMsg.height_target_m = TARGET_HEIGHT
-        PilotMsg.altitude_control_flag = true
-        self.pub_pilot.publish(PilotMsg)
         print("Finished fake ranger init")
 
     def sendFakeRange(self):
-        RangeMsg = Range
-        RangeMsg.header.time = self.fake_time
+        RangeMsg = RangeMsgDef()
+        RangeMsg.header.stamp = self.fake_time
         tdiff = self.fake_time % PERIOD
         if tdiff < 10:
             rdiff = RANGE_DELTA*tdiff/10
@@ -57,7 +59,7 @@ class FakeRanger:
 
     def run(self):
         while not rospy.is_shutdown():
-            sendFakeRange()
+            self.sendFakeRange()
             time.sleep(RATE_S)
             self.fake_time += RATE_S
 

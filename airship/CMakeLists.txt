@@ -112,7 +112,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES airship
-#  CATKIN_DEPENDS message_generation message_runtime roscpp roslib rospy std_msgs
+  CATKIN_DEPENDS std_msgs #message_generation message_runtime roscpp roslib rospy 
 #  DEPENDS system_lib
 )
 

@@ -1,4 +1,4 @@
-std_msgs/Header header
+Header header
 float32 height_target_m
 bool altitude_control_flag
 float32 yaw_target_deg
