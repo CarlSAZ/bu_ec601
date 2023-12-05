@@ -28,9 +28,10 @@ class AirshipAltitudeController:
         self.direction_out = 0
         self.integral = 0
         self.last_error = 0
-        self.last_imu = Imu
-        self.last_range = Range
+        self.last_imu = Imu()
+        self.last_range = Range()
         self.enabled = False
+        self.z_current = 0
 
         # Initialise node
         rospy.init_node('altitude_controller', anonymous=True)
@@ -42,20 +43,20 @@ class AirshipAltitudeController:
         rospy.spin()
 
     def imu_update_callback(self,imu_data: Imu):
-        self.last_imu = Imu
+        self.last_imu = imu_data
 
     def new_params(self,pilot_params: AirshipParams):
-        self.enabled = AirshipParams.altitude_control_flag
-        self.set_height_m = AirshipParams.height_target_m
+        self.enabled = pilot_params.altitude_control_flag
+        self.set_height_m = pilot_params.height_target_m
 
     def convertRange(self,range):
         return range
 
     def range_update_callback(self,alt_update: Range):
         
-        self.z_current = self.convertRange(Range.range)
+        self.z_current = self.convertRange(alt_update.range)
 
-        tdiff = Range.header.time - self.last_range.header.time
+        tdiff = alt_update.header.stamp - self.last_range.header.stamp
 
         # Get error
         error = self.set_height_m - self.z_current
@@ -76,6 +77,7 @@ class AirshipAltitudeController:
         # Update error
         self.last_error = error
         rotor = Rotor(pwm=self.pwm_out, direction=self.direction_out)
+        self.pub.publish(rotor)
         print("Got range update, error = ",error,". New rotor speed = ",raw_pwm)
         
         
