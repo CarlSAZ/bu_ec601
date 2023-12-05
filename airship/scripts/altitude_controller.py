@@ -53,7 +53,7 @@ class AirshipAltitudeController:
 
     def range_update_callback(self,alt_update: Range):
         
-        self.z_current = convertRange(Range.range)
+        self.z_current = self.convertRange(Range.range)
 
         tdiff = Range.header.time - self.last_range.header.time
 

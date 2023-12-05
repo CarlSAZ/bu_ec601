@@ -27,14 +27,14 @@ class FakeRanger:
         print("Sent Pilot Msg")
 
         RangeMsg = RangeMsgDef()
-        RangeMsg.header.stamp = self.fake_time
+        RangeMsg.header.stamp = rospy.Time(self.fake_time)
         RangeMsg.range = TARGET_HEIGHT
         self.pub.publish(RangeMsg)
         print("Finished fake ranger init")
 
     def sendFakeRange(self):
         RangeMsg = RangeMsgDef()
-        RangeMsg.header.stamp = self.fake_time
+        RangeMsg.header.stamp = rospy.Time(self.fake_time)
         tdiff = self.fake_time % PERIOD
         if tdiff < 10:
             rdiff = RANGE_DELTA*tdiff/10
