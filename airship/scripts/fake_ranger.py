@@ -21,11 +21,13 @@ class FakeRanger:
 
         RangeMsg = Range
         RangeMsg.header.time = self.fake_time
-        RangeMsg.
+        RangeMsg.range = TARGET_HEIGHT
+        self.pub.publish(RangeMsg)
 
         PilotMsg = AirshipParams
         PilotMsg.height_target_m = TARGET_HEIGHT
         PilotMsg.altitude_control_flag = true
+        self.pub_pilot.publish(PilotMsg)
 
     def sendFakeRange(self):
         RangeMsg = Range
@@ -50,6 +52,7 @@ class FakeRanger:
 
         RangeMsg.range = TARGET_HEIGHT + rdiff
         self.pub.publish(RangeMsg)
+        print("Sent Fake Range of ",RangeMsg.range,"m")
 
     def run()
         while not rospy.is_shutdown():
