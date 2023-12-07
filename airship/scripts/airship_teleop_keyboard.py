@@ -211,14 +211,17 @@ class PublishThread(threading.Thread):
                 last_pilot_msg = copy.deepcopy(pilot_msg)
                 rospy.loginfo(f"Set new altitude control: enabled = {pilot_msg.altitude_control_flag}, height = {pilot_msg.height_target_m :.3g}m")
             self.pilot_publisher.publish(pilot_msg)
+            rospy.loginfo("Finished updating pilot!")
 
             # Publish.
             if last_rotor_msg != rotor_msg:
                 last_rotor_msg = copy.deepcopy(rotor_msg)
                 rospy.loginfo("\nSet rotor pair pwms: %s, %s, directions: %s, %s", rotor_msg.left.pwm, rotor_msg.right.pwm, rotor_msg.left.direction, rotor_msg.right.direction)
             self.yaw_publisher.publish(rotor_msg)
+            rospy.loginfo("Finished updating yaw motors!")
 
             self.alt_publisher.publish(Zrotor_msg)
+            rospy.loginfo("Finished updating messages!")
         # Publish stop message when thread exits.
         rotor_msg.left.pwm = 0
         rotor_msg.right.pwm = 0
