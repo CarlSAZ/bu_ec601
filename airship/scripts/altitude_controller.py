@@ -71,10 +71,11 @@ class AirshipAltitudeController:
         derivative = (error - self.last_error)*tdiff.to_sec()
 
         # Get raw motor value
-        raw_pwm = -(P*error + I*self.integral + D*derivative)
+        raw_pwm = (P*error + I*self.integral + D*derivative)
         # Save pwm and direction
         self.direction_out = int(raw_pwm > 0 != INVERT_VERT_PROP)
-        raw_pwm = abs(raw_pwm)
+
+        # If height is above capacity, turn off the motor
         self.pwm_out = int(max(0, min(raw_pwm, 255)))
 
         # Update error
