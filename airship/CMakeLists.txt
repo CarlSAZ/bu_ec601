@@ -171,6 +171,7 @@ catkin_install_python(PROGRAMS
   scripts/pigpio_setter.py
   scripts/altitude_controller.py
   scripts/fake_ranger.py
+  scripts/sonic_ranger.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
