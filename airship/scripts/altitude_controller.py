@@ -50,6 +50,7 @@ class AirshipAltitudeController:
     def new_params(self,pilot_params: AirshipParams):
         self.enabled = pilot_params.altitude_control_flag
         self.set_height_m = pilot_params.height_target_m
+        print("Got new altitude: enabled = ",self.enabled," height = ",self.set_height_m,"m")
 
     def convertRange(self,range):
         return range
@@ -72,7 +73,7 @@ class AirshipAltitudeController:
         # Get raw motor value
         raw_pwm = -(P*error + I*self.integral + D*derivative)
         # Save pwm and direction
-        self.direction_out = int(raw_pwm > 0)
+        self.direction_out = int(raw_pwm > 0 != INVERT_VERT_PROP)
         raw_pwm = abs(raw_pwm)
         self.pwm_out = int(max(0, min(raw_pwm, 255)))
 
@@ -80,7 +81,7 @@ class AirshipAltitudeController:
         self.last_error = error
         rotor = Rotor(pwm=self.pwm_out, direction=self.direction_out)
         self.pub.publish(rotor)
-        print("Got range update, error = ",error,". New rotor speed = ",raw_pwm)
+        print("Got range update; height = ",self.z_current," error = ",error,". New rotor speed = ",raw_pwm)
         
         
     def __del__(self):
