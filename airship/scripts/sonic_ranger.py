@@ -2,14 +2,15 @@
 
 import rospy
 import time
-from gpiozero import DistanceSensor
+from gpiozero import DistanceSensor, Device
 from airship.msg import Range as RangeMsg
-
+from gpiozero.pins.pigpio import PiGPIOFactory
 ECHO = 23
 TRIG = 24
 
 RATE = 10 # Hz
 
+Device.pin_factory = PiGPIOFactory()
 
 class SonicRanger:
     def __init__(self):
@@ -20,10 +21,12 @@ class SonicRanger:
     def measure_range_m(self) -> float:
         rangelist = []
         for x in range(10):
-            rangelist.append(self.sensor.distnace)
-        subranges = list(dict.fromkeys(rangelist))
-        if len(subranges) < 8:
-            return -1
+            rangelist.append(self.sensor.distance)
+        #subranges = list(dict.fromkeys(rangelist))
+        #if len(subranges) < 8:
+            #return -1
+            #print("Duplicates = ",len(rangelist) - len(subranges))
+
         return sum(rangelist) / len(rangelist)
 
 
@@ -39,10 +42,12 @@ class SonicRanger:
                 print("Got bad range value!")
                 rate.sleep()
                 continue
-
+            
             self.pub.publish(msg)
             print("Got Range of ",round(msg.range,4),"m")
             rate.sleep()
+            count+=1
+
 
 
 if __name__ == '__main__':
