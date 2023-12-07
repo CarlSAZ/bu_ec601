@@ -36,10 +36,10 @@ class AirshipAltitudeController:
         # Initialise node
         rospy.init_node('altitude_controller', anonymous=True)
         # Initialise publisher and subscriber
-        self.pub = rospy.Publisher('altitude_rotor', Rotor, queue_size=1)
-        rospy.Subscriber('bno08x/raw', Imu, self.imu_update_callback, queue_size=1)
-        rospy.Subscriber('airship/alt_range',Range, self.range_update_callback,queue_size=1)
-        rospy.Subscriber('airship/pilot_params',AirshipParams,self.new_params,queue_size=10)
+        self.pub = rospy.Publisher('/altitude_rotor', Rotor, queue_size=1)
+        #rospy.Subscriber('bno08x/raw', Imu, self.imu_update_callback, queue_size=1)
+        rospy.Subscriber('/airship/alt_range',Range, self.range_update_callback,queue_size=1)
+        rospy.Subscriber('/airship/pilot_params',AirshipParams,self.new_params,queue_size=10)
         
         print("Finished Altitude Init")
         rospy.spin()
