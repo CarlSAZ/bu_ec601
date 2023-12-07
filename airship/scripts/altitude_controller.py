@@ -11,8 +11,8 @@ from airship.msg import Range, Rotor, AirshipParams
 #from airshippi_vicon import testmodule
 
 # Global params
-P = 90
-I = 0.5
+P = 15
+I = 0
 D = 0
 
 MIN_HEIGHT = 0

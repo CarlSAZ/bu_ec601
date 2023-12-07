@@ -8,7 +8,7 @@ from std_msgs.msg import Header
 PERIOD = 90
 
 RATE_S = 0.5
-TARGET_HEIGHT = 2
+TARGET_HEIGHT = 4
 RANGE_DELTA = 1
 
 class FakeRanger:
@@ -41,16 +41,16 @@ class FakeRanger:
         elif tdiff < 20:
             rdiff = RANGE_DELTA
         elif tdiff < 30:
-            rdiff = RANGE_DELTA*(30-tdiff)
+            rdiff = RANGE_DELTA*(30-tdiff)/10
         elif tdiff < 40:
             rdiff = 0
         elif tdiff < 50:
-            rdiff = -RANGE_DELTA*(tdiff-40)
+            rdiff = -RANGE_DELTA*(tdiff-40)/10
         elif tdiff < 60:
             rdiff = -RANGE_DELTA
         elif tdiff < 70:
-            rdiff = -RANGE_DELTA*(70-tdiff)
-        else:
+            rdiff = -RANGE_DELTA*(70-tdiff)/10
+        elif tdiff >= 70:
             rdiff = 0
 
         RangeMsg.range = TARGET_HEIGHT + rdiff

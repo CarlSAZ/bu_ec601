@@ -7,8 +7,8 @@ import pigpio
 from airship.msg import Rotor
 from airship.msg import RotorPair
 
-VERT_EN = 10
-VERT_PH = 9
+VERT_EN = 16
+VERT_PH = 12
 LEFT_EN = 5
 LEFT_PH = 6
 RIGHT_EN = 13
