@@ -18,19 +18,21 @@ class FakeRanger:
         self.pub_pilot = rospy.Publisher('airship/pilot_params', AirshipParams, queue_size=1)
 
         self.fake_time = 0
-
         print("Finished publisher setup")
-        PilotMsg = AirshipParams()
-        PilotMsg.height_target_m = TARGET_HEIGHT
-        PilotMsg.altitude_control_flag = True
-        self.pub_pilot.publish(PilotMsg)
-        print("Sent Pilot Msg")
+        
+        time.sleep(20)
 
         RangeMsg = RangeMsgDef()
         RangeMsg.header.stamp = rospy.Time(self.fake_time)
         RangeMsg.range = TARGET_HEIGHT
         self.pub.publish(RangeMsg)
         print("Finished fake ranger init")
+        
+        PilotMsg = AirshipParams()
+        PilotMsg.height_target_m = TARGET_HEIGHT
+        PilotMsg.altitude_control_flag = True
+        self.pub_pilot.publish(PilotMsg)
+        print("Sent Pilot Msg")
 
     def sendFakeRange(self):
         RangeMsg = RangeMsgDef()

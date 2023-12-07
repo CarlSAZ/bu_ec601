@@ -80,7 +80,8 @@ class AirshipAltitudeController:
         # Update error
         self.last_error = error
         rotor = Rotor(pwm=self.pwm_out, direction=self.direction_out)
-        self.pub.publish(rotor)
+        if self.enabled:
+            self.pub.publish(rotor)
         print("Got range update; height = ",self.z_current," error = ",error,". New rotor speed = ",raw_pwm)
         
         
