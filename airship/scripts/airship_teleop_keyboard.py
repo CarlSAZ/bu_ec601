@@ -75,13 +75,11 @@ moveBindings = {
         '<':(-1,0,0,0),
         '>':(-1,0,0,1),
         'M':(-1,0,0,-1),
-    }
-VerticalBindings = {
         't':(0,0,1,0),
         'b':(0,0,-1,0),
         'T':(0,0,1,0),
         'B':(0,0,-1,0)
-}
+    }
 
 
 AltitudeBindings={
@@ -297,10 +295,8 @@ if __name__=="__main__":
             if key in moveBindings:
                 x = moveBindings[key][0]
                 y = moveBindings[key][1]
-                #z = moveBindings[key][2]
-                th = moveBindings[key][3]
-            elif key in VerticalBindings:
                 z = moveBindings[key][2]
+                th = moveBindings[key][3]
             elif key in AltitudeBindings:
                 ztarget = ztarget + AltitudeBindings[key]
             elif key in ['g','G']:
