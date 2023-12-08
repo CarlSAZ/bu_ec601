@@ -11,10 +11,11 @@ from airship.msg import Range, Rotor, AirshipParams
 #from airshippi_vicon import testmodule
 
 # Global params
-P = 15
+P = 90
 I = 0
-D = 0
+D = 10
 
+DEADZONE_CORRECTION = 10
 MIN_HEIGHT = 0
 INVERT_VERT_PROP = False
 
@@ -50,7 +51,7 @@ class AirshipAltitudeController:
     def new_params(self,pilot_params: AirshipParams):
         self.enabled = pilot_params.altitude_control_flag
         self.set_height_m = pilot_params.height_target_m
-        print("Got new altitude: enabled = ",self.enabled," height = ",self.set_height_m,"m")
+        rospy.loginfo(f"Got new altitude: enabled = {self.enabled}, height = {self.set_height_m}m")
 
     def convertRange(self,range):
         return range
@@ -71,19 +72,22 @@ class AirshipAltitudeController:
         derivative = (error - self.last_error)*tdiff.to_sec()
 
         # Get raw motor value
-        raw_pwm = (P*error + I*self.integral + D*derivative)
+        raw_pwm = (P*error + I*self.integral + D*derivative) + DEADZONE_CORRECTION
         # Save pwm and direction
         self.direction_out = int(raw_pwm > 0 != INVERT_VERT_PROP)
 
-        # If height is above capacity, turn off the motor
+        # If correction factor is negative, ignore it. The rotors are not setup to give negative thrust
         self.pwm_out = int(max(0, min(raw_pwm, 255)))
+        if self.pwm_out <= DEADZONE_CORRECTION:
+            self.pwm_out = 0
+
 
         # Update error
         self.last_error = error
         rotor = Rotor(pwm=self.pwm_out, direction=self.direction_out)
         if self.enabled:
             self.pub.publish(rotor)
-        print("Got range update; height = ",self.z_current," error = ",error,". New rotor speed = ",raw_pwm)
+        rospy.loginfo(f"Got range update; height = {self.z_current}m error = {error}m, raw_pwm = {raw_pwm}. New rotor speed = {self.pwm_out}, Direction = {self.direction_out}")
         
         
     def __del__(self):

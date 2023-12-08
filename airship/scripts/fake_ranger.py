@@ -7,7 +7,7 @@ from std_msgs.msg import Header
 
 PERIOD = 90
 
-RATE_S = 0.5
+RATE_S = 0.05
 TARGET_HEIGHT = 4
 RANGE_DELTA = 1
 
